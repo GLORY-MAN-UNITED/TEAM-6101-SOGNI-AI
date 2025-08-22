@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('images/rivendell.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 1.5em;
+    color: #d4b675;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    color: #ffd700;
+    text-align: center;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 1em;
+    word-wrap: break-word;
+}
+
+.card-container {
+    perspective: 1000px;
+    margin: 0 auto;
+    max-width: 500px;
+    min-height: 600px;
+    width: 100%;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 600px;
+    backface-visibility: hidden;
+    background: rgba(20, 20, 20, 0.9);
+    padding: 1.5em;
+    border-radius: 0;
+    box-shadow: 0 0 15px rgba(212, 182, 117, 0.3);
+    border: 1px solid #d4b675;
+    box-sizing: border-box;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 3em;
+    gap: 2em;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #ffd700;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.fun-fact {
+    color: #d4b675;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin: 1em 0 0.5em;
+    font-family: 'Cinzel', serif;
+    color: #ffd700;
+    font-size: 1.1em;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8em;
+    margin-bottom: 1em;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #d4b675;
+    color: #d4b675;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Remove spinner buttons from number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;  /* Firefox */
+    appearance: textfield;  /* Standard */
+}
+
+button {
+    padding: 1em 2em;
+    border: 2px solid #ffd700;
+    background: transparent;
+    color: #ffd700;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 2em auto 0;
+}
+
+button:hover {
+    background: #ffd700;
+    color: #2c2c2c;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+#result {
+    margin-top: 2em;
+    text-align: center;
+}
+
+#character-image {
+    max-width: 90%;
+    max-height: 70vh;
+    object-fit: contain;
+    border: 3px solid #d4b675;
+    box-shadow: 0 0 25px rgba(212, 182, 117, 0.5);
+}
+
+.generate-another-btn {
+    padding: 1em 2em;
+    border: 2px solid #ffd700;
+    background: transparent;
+    color: #ffd700;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    margin-top: 1em;
+}
+
+.generate-another-btn:hover {
+    background: #ffd700;
+    color: #2c2c2c;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        padding: 1em;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 0.8em;
+    }
+
+    .card-container {
+        min-height: 500px;
+    }
+
+    .card, .card-front, .card-back {
+        min-height: 500px;
+    }
+
+    .card-front, .card-back {
+        padding: 1em;
+    }
+
+    .loading-container {
+        width: 90%;
+    }
+
+    .fun-fact {
+        font-size: 1em;
+    }
+
+    input, select {
+        padding: 0.6em;
+        margin-bottom: 0.8em;
+    }
+
+    button {
+        padding: 0.8em 1.5em;
+        width: 100%;
+        margin: 1em 0;
+    }
+
+    #character-image {
+        max-height: 50vh;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+
+    .card-container {
+        min-height: 450px;
+    }
+
+    .card, .card-front, .card-back {
+        min-height: 450px;
+    }
+
+    .loading-spinner {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .fun-fact {
+        font-size: 0.9em;
+    }
+}

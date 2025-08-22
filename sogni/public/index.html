@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DND Character Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>DND Character Card Generator</h1>
+  <div class="card-container">
+    <div class="card">
+      <div class="card-front">
+        <form id="character-form">
+          <label>Age: <input type="number" name="age" min="1" max="120" value="60" required></label><br>
+          <label>Gender:
+            <select name="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </label><br>
+          <label>Species:
+            <select name="species">
+              <option>Dragonborn</option>
+              <option>Dwarf</option>
+              <option>Elf</option>
+              <option>Halfling</option>
+              <option>Human</option>
+              <option>Orc</option>
+              <option>Tiefling</option>
+            </select>
+          </label><br>
+          <label>Class:
+            <select name="class">
+              <option>Barbarian</option>
+              <option>Bard</option>
+              <option>Cleric</option>
+              <option>Druid</option>
+              <option>Fighter</option>
+              <option>Monk</option>
+              <option>Paladin</option>
+              <option>Ranger</option>
+              <option>Rogue</option>
+              <option>Sorcerer</option>
+              <option>Warlock</option>
+              <option>Wizard</option>
+            </select>
+          </label><br>
+          <label>Location:
+            <select name="location">
+              <option>Forest</option>
+              <option>Castle</option>
+              <option>Cave</option>
+              <option>Temple</option>
+              <option>Village</option>
+              <option>Mountain</option>
+              <option>Graveyard</option>
+              <option>Dungeon</option>
+            </select>
+          </label><br>
+          <label>Favorite Color:
+            <select name="color">
+              <option>Red</option>
+              <option>Yellow</option>
+              <option>Blue</option>
+              <option>Green</option>
+              <option>Orange</option>
+              <option>Purple</option>
+              <option>Pink</option>
+              <option>Black</option>
+              <option>White</option>
+              <option>Gray</option>
+              <option>Brown</option>
+            </select>
+          </label><br>
+          <button type="submit">Generate Character</button>
+        </form>
+      </div>
+      <div class="card-back">
+        <div class="loading-container">
+          <div class="loading-spinner"></div>
+          <p id="fun-fact" class="fun-fact">🧙 Loading your magical character...</p>
+        </div>
+        <img id="character-image" src="" alt="Character Card">
+        <button id="generate-another" class="generate-another-btn">Generate Another One</button>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
